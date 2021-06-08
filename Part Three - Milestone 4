@@ -1,0 +1,15 @@
+# Milestone 4: Replicating Food
+
+def respawn_food():
+    global food, canvas_width, canvas_height, block_length
+    food[0] = randrange(0, int(canvas_width/block_length - 1))
+    food[1] = randrange(0, int(canvas_height/block_length - 1))
+    check_food()
+
+def check_food():
+    global snake, food
+    for body in snake:
+        if body[0] == food[0] and body[1] == food[1]:
+            respawn_food()
+        else:
+            pass
