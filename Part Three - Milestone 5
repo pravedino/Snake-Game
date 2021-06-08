@@ -1,0 +1,8 @@
+# Milestone 5: Updating Score
+
+def update_score():
+    global snake
+    current_score = len(snake)
+    score_text = "Score: " + str(current_score)
+    score.config(text=score_text)
+    score.grid()
