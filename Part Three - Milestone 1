@@ -1,0 +1,36 @@
+# PART 3: METHODS
+# Milestone 1: Still-Image
+
+def draw_board():
+    global snake
+    for body in snake:
+        top_left_X = body[0] * block_length
+        top_left_Y = body[1] * block_length
+        board.create_rectangle(top_left_X, top_left_Y,
+                               top_left_X + block_length,
+                               top_left_Y + block_length,
+                               fill="green")
+
+    food_left_X = food[0] * block_length
+    food_left_Y = food[1] * block_length
+    board.create_rectangle(food_left_X, food_left_Y,
+                           food_left_X + block_length,
+                           food_left_Y + block_length,
+                           fill="purple")
+
+def update_board():
+    board.pack()
+    root.update()
+    board.delete('all')
+
+def game_loop():
+    # update_score()
+    # listener = keyboard.Listener(on_press=on_press)
+    # listener.start()
+    while in_game:
+        sleep(0.08)
+        # update_snake()
+        draw_board()
+        update_board()
+
+    # post_game_menu()
