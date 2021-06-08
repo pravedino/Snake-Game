@@ -1,0 +1,13 @@
+# Milestone 3: Eating Snake
+
+def food_eaten():
+    global snake
+    index = len(snake) - 1
+    snake_head_X = snake[0][0]
+    snake_head_Y = snake[0][1]
+    if snake_head_X == food[0] and snake_head_Y == food[1]:
+        snake_tail_X = snake[index][0]
+        snake_tail_Y = snake[index][1]
+        snake.append([snake_tail_X, snake_tail_Y])
+        # respawn_food()
+        # update_score()
