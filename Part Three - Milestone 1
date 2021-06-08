@@ -34,3 +34,9 @@ def game_loop():
         update_board()
 
     # post_game_menu()
+
+
+
+
+game_loop()
+root.mainloop()
