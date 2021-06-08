@@ -1,0 +1,47 @@
+# Milestone 2: Moving Snake
+
+def on_press(key):
+    global direction
+    if key == keyboard.Key.up:
+        if direction == 'S':
+            pass
+        else:
+            direction = 'N'
+    elif key == keyboard.Key.down:
+        if direction == 'N':
+            pass
+        else:
+            direction = 'S'
+    elif key == keyboard.Key.left:
+        if direction == 'E':
+            pass
+        else:
+            direction = 'W'
+    elif key == keyboard.Key.right:
+        if direction == 'W':
+            pass
+        else:
+            direction = 'E'
+
+def update_snake():
+    global snake
+    index = len(snake) - 1
+    for i in range(index, -1, -1):
+        if i > 0:
+            snake[i][0] = snake[i-1][0]
+            snake[i][1] = snake[i-1][1]
+        else:
+            new_head()
+            # food_eaten()
+            # snake_death()
+
+def new_head():
+    global direction
+    if direction == 'N':
+        snake[0][1] -= 1
+    elif direction == 'S':
+        snake[0][1] += 1
+    elif direction == 'W':
+        snake[0][0] -= 1
+    elif direction == 'E':
+        snake[0][0] += 1
