@@ -1,0 +1,39 @@
+# The symbols # and '''text''' represent comments, the code is ignores them
+# During the workshop, remove the # and ''' symbols when told
+
+# PART 2 : Initialize
+
+from tkinter import *
+from random import *
+from time import *
+from pynput import *
+
+root = Tk()
+root.title("Snake")
+root.geometry("600x675")
+root.resizable(False, False)
+
+game_frame = Frame(root, width=600, height=600)
+game_frame.grid(column=0, row=0)
+canvas_width = 600
+canvas_height = 600
+board = Canvas(game_frame, width=canvas_width,
+               height=canvas_height, bg="black")
+
+score_frame = Frame(root, width=600, height=75)
+score_frame.grid(column=0, row=1)
+score = Label(score_frame, text="",
+              fg="red", font=("Comic Sans", 18))
+restart_button = Button(score_frame, text="Restart?")
+
+block_length = 20
+# canvas_width and canvas_height,
+# when divided by block_length, must be even
+starting_X = canvas_width / 2 / block_length
+starting_Y = canvas_height / 2 / block_length
+snake = [[starting_X, starting_Y],
+         [starting_X + 1, starting_Y],
+         [starting_X + 2, starting_Y]]
+food = [5, 5]
+direction = 'W'
+in_game = True
