@@ -1,0 +1,22 @@
+# Milestone 7: Complete Game
+
+def post_game_menu():
+    global snake
+    board.delete("all")
+    score_text = "Final Score: " + str(len(snake))
+    score.config(text=score_text)
+    restart_button.config(command=restart)
+    score.grid()
+    restart_button.grid(row=1, pady=5)
+
+def restart():
+    global in_game, snake, food, \
+        direction, starting_X, starting_Y
+    restart_button.grid_remove()
+    in_game = True
+    snake = [[starting_X, starting_Y],
+             [starting_X + 1, starting_Y],
+             [starting_X + 2, starting_Y]]
+    direction = 'W'
+    respawn_food()
+    game_loop()
